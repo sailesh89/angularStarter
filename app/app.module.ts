@@ -5,8 +5,13 @@ import { appRouting } from "./app.routing";
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
+import { AboutUserComponent } from './about/about-user.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { NotFoundComponent } from "./notfound/notfound.component";
+
+import { UserService } from "./shared/services/user.service";
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -15,9 +20,12 @@ import { ContactComponent } from './contact/contact.component';
     exports: [],
     declarations: [
         AppComponent,
-        HomeComponent,AboutComponent,ContactComponent
+        HomeComponent,ContactComponent,NotFoundComponent,
+        AboutComponent,AboutUserComponent
     ],
-    providers: [],
+    providers: [
+        UserService
+    ],
     bootstrap:[AppComponent]
 })
 export class AppModule { }
