@@ -10,18 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent() {
     }
-    AppComponent = __decorate([
+    AboutComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html',
-            styles: ["\n        \n    "]
+            template: "\n        <h3>This is About Page</h3>\n    "
         }),
         __metadata("design:paramtypes", [])
-    ], AppComponent);
-    return AppComponent;
+    ], AboutComponent);
+    return AboutComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AboutComponent = AboutComponent;
+//# sourceMappingURL=about.component.js.map

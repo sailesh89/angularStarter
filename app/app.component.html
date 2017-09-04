@@ -2,13 +2,17 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">My App</a>      
+                <a routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}" class="navbar-brand">My App</a>      
             </div>
 
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>                   
+                <li><a routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">
+                    Home
+                </a></li>
+                <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+                <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>                   
             </ul>
         </div>       
        
@@ -16,6 +20,7 @@
 </header>
 <main>
     <h1>This is my first angular 2 Component</h1>
+    <router-outlet></router-outlet>
 </main>
 <footer class="text-center">
     &copy; Copyright 2017
