@@ -19,18 +19,19 @@ var AboutUserComponent = /** @class */ (function () {
         this.userSevice = userSevice;
     }
     AboutUserComponent.prototype.ngOnInit = function () {
+        //let username = this.route.snapshot.params['username'];
         var _this = this;
-        var username = this.route.snapshot.params['username'];
-        this.userSevice.getUserByUserName(username).then(function (user) { return _this.user = user; });
+        //this.userSevice.getUserByUserName(username).then(user=>this.user=user)
         // this.route.data.forEach((data:{user:User})=> this.user=data.user);
-        console.log(username);
+        // console.log(username);
+        this.route.data.forEach(function (data) { return _this.user = data.user; });
     };
     AboutUserComponent.prototype.goBack = function () {
         this.router.navigate(['/about']);
     };
     AboutUserComponent = __decorate([
         core_1.Component({
-            template: "\n        <button class=\"btn btn-primary btn-sm\" (click)=\"goBack()\">Go Back</button>\n        <div class=\"jumbotron\" *ngIf=\"user\">\n            <img [src]=\"user.avatar\" class=\"img-responsive img-circle\" alt=\"user.name\"/>\n            <h2>{{user.name}}</h2>\n            <p><a href=\"https://www.facebook.com/{{user.username}}\" >{{user.username}}</a></p>\n        </div>\n        <div class=\"jumbotron\" *ngIf=\"!user\">\n            \n            <h2>Requested User Data not found</h2>\n           \n        </div>\n    ",
+            template: "\n        <button class=\"btn btn-primary btn-sm\" (click)=\"goBack()\">Go Back</button>\n        <div class=\"jumbotron\">\n            <img [src]=\"user.avatar\" class=\"img-responsive img-circle\" alt=\"user.name\"/>\n            <h2>{{user.name}}</h2>\n            <p><a href=\"https://www.facebook.com/{{user.username}}\" >{{user.username}}</a></p>\n        </div>\n        \n    ",
             styles: ["\n        .jumbotron{\n            margin:15px auto;\n            text-align:center;\n            padding:10px 10px;\n            border-radius:10px;\n        }\n\n        .jumbotron img{\n            max-width:240px;\n            margin:15px auto;\n        }\n    "]
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,

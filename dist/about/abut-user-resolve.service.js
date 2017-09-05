@@ -9,17 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var user_service_1 = require("../shared/services/user.service");
 var core_1 = require("@angular/core");
-var AboutSectionComponent = /** @class */ (function () {
-    function AboutSectionComponent() {
+var AboutUserResolveService = /** @class */ (function () {
+    function AboutUserResolveService(service) {
+        this.service = service;
     }
-    AboutSectionComponent = __decorate([
-        core_1.Component({
-            template: "\n        <h1 class=\"text-center\">About Section</h1>\n        <router-outlet></router-outlet>\n    "
-        }),
-        __metadata("design:paramtypes", [])
-    ], AboutSectionComponent);
-    return AboutSectionComponent;
+    AboutUserResolveService.prototype.resolve = function (route) {
+        var username = route.params['username'];
+        return this.service.getUserByUserName(username).then(function (user) { return user; });
+    };
+    AboutUserResolveService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [user_service_1.UserService])
+    ], AboutUserResolveService);
+    return AboutUserResolveService;
 }());
-exports.AboutSectionComponent = AboutSectionComponent;
-//# sourceMappingURL=about-section.component.js.map
+exports.AboutUserResolveService = AboutUserResolveService;
+//# sourceMappingURL=abut-user-resolve.service.js.map

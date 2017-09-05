@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     
-    templateUrl: `
-        <h1>About Section</h1>
+    template: `
+        <h1 class="text-center">About Section</h1>
         <router-outlet></router-outlet>
     `    
 })
 
-export class AboutSectionomponent  {
+export class AboutSectionComponent  {
     constructor() { }    
 }

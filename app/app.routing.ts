@@ -14,12 +14,9 @@ const appRoutes:Routes=[
     },
     {
         path:"about",
-        component:AboutComponent
-    },
-    {
-        path:"about/:username",
-        component:AboutUserComponent
-    },
+        //component:AboutComponent
+        loadChildren:"app/about/about.module#AboutModule"
+    },   
     {
         path:"contact",
         component:ContactComponent

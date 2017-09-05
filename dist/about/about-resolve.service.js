@@ -9,17 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var user_service_1 = require("../shared/services/user.service");
 var core_1 = require("@angular/core");
-var AboutSectionComponent = /** @class */ (function () {
-    function AboutSectionComponent() {
+var AboutResolveService = /** @class */ (function () {
+    function AboutResolveService(service) {
+        this.service = service;
     }
-    AboutSectionComponent = __decorate([
-        core_1.Component({
-            template: "\n        <h1 class=\"text-center\">About Section</h1>\n        <router-outlet></router-outlet>\n    "
-        }),
-        __metadata("design:paramtypes", [])
-    ], AboutSectionComponent);
-    return AboutSectionComponent;
+    AboutResolveService.prototype.resolve = function (route) {
+        return this.service.getAllUsers().then(function (users) { return users; });
+    };
+    AboutResolveService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [user_service_1.UserService])
+    ], AboutResolveService);
+    return AboutResolveService;
 }());
-exports.AboutSectionComponent = AboutSectionComponent;
-//# sourceMappingURL=about-section.component.js.map
+exports.AboutResolveService = AboutResolveService;
+//# sourceMappingURL=about-resolve.service.js.map

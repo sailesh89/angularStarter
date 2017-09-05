@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+//import { AboutModule } from "./about/about.module";
 var app_routing_1 = require("./app.routing");
 var app_component_1 = require("./app.component");
-var about_component_1 = require("./about/about.component");
-var about_user_component_1 = require("./about/about-user.component");
+// import { AboutComponent } from './about/about.component';
+// import { AboutUserComponent } from './about/about-user.component';
 var home_component_1 = require("./home/home.component");
 var contact_component_1 = require("./contact/contact.component");
 var notfound_component_1 = require("./notfound/notfound.component");
-var user_service_1 = require("./shared/services/user.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -28,12 +28,9 @@ var AppModule = /** @class */ (function () {
             exports: [],
             declarations: [
                 app_component_1.AppComponent,
-                home_component_1.HomeComponent, contact_component_1.ContactComponent, notfound_component_1.NotFoundComponent,
-                about_component_1.AboutComponent, about_user_component_1.AboutUserComponent
+                home_component_1.HomeComponent, contact_component_1.ContactComponent, notfound_component_1.NotFoundComponent
             ],
-            providers: [
-                user_service_1.UserService
-            ],
+            providers: [],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

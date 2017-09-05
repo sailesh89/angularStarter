@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from "../shared/models/user";
 import { UserService } from "../shared/services/user.service";
+import { Router,ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { UserService } from "../shared/services/user.service";
             border-radius:10px;
             margin:15px auto;
             padding:10px 10px;
+            cursor:pointer;
 
         }
         .profile-card img{
@@ -34,8 +36,10 @@ import { UserService } from "../shared/services/user.service";
 
 export class AboutComponent implements OnInit {
     users:User[];
-    constructor(private userService:UserService) { }     
+    constructor(private userService:UserService, private route:ActivatedRoute) { }     
     ngOnInit(){
-        this.userService.getAllUsers().then(users=>this.users=users);
+       // this.userService.getAllUsers().then(users=>this.users=users);
+
+        this.route.data.forEach((data:{users:User[]})=>this.users=data.users)
     }
 }

@@ -7,16 +7,12 @@ import { UserService } from "../shared/services/user.service";
     
     template: `
         <button class="btn btn-primary btn-sm" (click)="goBack()">Go Back</button>
-        <div class="jumbotron" *ngIf="user">
+        <div class="jumbotron">
             <img [src]="user.avatar" class="img-responsive img-circle" alt="user.name"/>
             <h2>{{user.name}}</h2>
             <p><a href="https://www.facebook.com/{{user.username}}" >{{user.username}}</a></p>
         </div>
-        <div class="jumbotron" *ngIf="!user">
-            
-            <h2>Requested User Data not found</h2>
-           
-        </div>
+        
     `,
     styles:[`
         .jumbotron{
@@ -41,11 +37,13 @@ export class AboutUserComponent implements OnInit {
         private userSevice:UserService
     ) { }
     ngOnInit(){
-        let username = this.route.snapshot.params['username'];
+        //let username = this.route.snapshot.params['username'];
         
-        this.userSevice.getUserByUserName(username).then(user=>this.user=user)
+        //this.userSevice.getUserByUserName(username).then(user=>this.user=user)
         // this.route.data.forEach((data:{user:User})=> this.user=data.user);
-        console.log(username);
+       // console.log(username);
+
+        this.route.data.forEach((data:{user:User})=>this.user=data.user)
     }
 
     goBack(){
