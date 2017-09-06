@@ -19,6 +19,10 @@ var appRoutes = [
         component: contact_component_1.ContactComponent
     },
     {
+        path: "dashboard",
+        loadChildren: "app/dashboard/dashboard.module#DashboardModule"
+    },
+    {
         path: "**",
         component: notfound_component_1.NotFoundComponent
     }

@@ -22,6 +22,10 @@ const appRoutes:Routes=[
         component:ContactComponent
     },
     {
+        path:"dashboard",
+        loadChildren:"app/dashboard/dashboard.module#DashboardModule"
+    },
+    {
         path:"**",
         component:NotFoundComponent
     }
